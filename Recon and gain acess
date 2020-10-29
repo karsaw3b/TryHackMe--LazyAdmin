@@ -1,0 +1,6 @@
+Link: https://tryhackme.com/room/lazyadmin
+
+At first of course nmap scan which is giving us only 2 open ports, nothing interesting, there's only ssh and web server running on machine.
+We also run a gobuster scan, its importan, even more than nmap because this attack is more geared towards exploring sensitive libraries which shoud not been public. 
+
+From gobuster I know there is dir called content, which is kind a informing page from web aplication. Ap is called Sweetrice, This one is new to me, i don't have experience with it. I searched exploit for this ap but for older versions. I know its dir because I noticed its slash at the end so lets run gobuster again. It was good idea 
