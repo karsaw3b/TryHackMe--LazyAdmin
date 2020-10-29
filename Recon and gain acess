@@ -3,7 +3,9 @@ Link: https://tryhackme.com/room/lazyadmin
 At first of course nmap scan which is giving us only 2 open ports, nothing interesting, there's only ssh and web server running on machine.
 We also run a gobuster scan, its importan, even more than nmap because this attack is more geared towards exploring sensitive libraries which shoud not been public. 
 
-From gobuster I know there is dir called content, which is kind a informing page from web aplication. 
-Ap is called Sweetrice. This one is new to me, I don't have experience with it. I searched exploit for this ap but for older versions. 
-I know its dir because I noticed its slash at the end so lets run gobuster again. It was good idea 
+From gobuster I know there is dir called content, which is kind a informing page from web aplication.
+App is called Sweetrice and its CMS. This one is new to me, I don't have experience with it. I searched exploit for this ap but its only for older versions. 
+Content dir has link for technical help for admins, many usefull informations about security which we can leverage, for example that every importan file is stored in inc dir.
+I know content is dir because I noticed here is slash at the end so lets run gobuster again. It was good idea because we forced another dir called as, which is login page.
+
 
